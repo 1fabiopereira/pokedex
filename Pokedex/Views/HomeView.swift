@@ -128,6 +128,6 @@ extension HomeView {
     }
     
     func configureViews() {
-        // Not to implement
+        // Nothing to implement
     }
 }

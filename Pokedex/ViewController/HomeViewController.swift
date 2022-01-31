@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-final class HomeViewController: UIViewController {    
+final class HomeViewController: UIViewController {
     private let customView: HomeView
     
      init() {
