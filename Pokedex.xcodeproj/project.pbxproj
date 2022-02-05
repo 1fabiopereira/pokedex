@@ -20,6 +20,7 @@
 		011E803027A5F7E4004A29B5 /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011E802F27A5F7E4004A29B5 /* Icon.swift */; };
 		013F301927A6457800A66DB3 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013F301827A6457800A66DB3 /* Colors.swift */; };
 		01511F4C27A78CE2008F21D7 /* ClickableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01511F4B27A78CE2008F21D7 /* ClickableDelegate.swift */; };
+		01F841BD27AEF57100278611 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F841BC27AEF57100278611 /* Card.swift */; };
 		7C1CCADB551B907B155FAA92 /* Pods_Pokedex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B947DA084ED9042C6061964 /* Pods_Pokedex.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 		011E802F27A5F7E4004A29B5 /* Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
 		013F301827A6457800A66DB3 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		01511F4B27A78CE2008F21D7 /* ClickableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickableDelegate.swift; sourceTree = "<group>"; };
+		01F841BC27AEF57100278611 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		9B947DA084ED9042C6061964 /* Pods_Pokedex.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pokedex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D52736BC2E1602AA22822C61 /* Pods-Pokedex.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pokedex.debug.xcconfig"; path = "Target Support Files/Pods-Pokedex/Pods-Pokedex.debug.xcconfig"; sourceTree = "<group>"; };
 		E68D271E93A92F0C715ACD3A /* Pods-Pokedex.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pokedex.release.xcconfig"; path = "Target Support Files/Pods-Pokedex/Pods-Pokedex.release.xcconfig"; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 			children = (
 				011E802627A5AD56004A29B5 /* Badge.swift */,
 				011E802F27A5F7E4004A29B5 /* Icon.swift */,
+				01F841BC27AEF57100278611 /* Card.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 				011E802727A5AD56004A29B5 /* Badge.swift in Sources */,
 				011E800D27A575B0004A29B5 /* HomeView.swift in Sources */,
 				011E803027A5F7E4004A29B5 /* Icon.swift in Sources */,
+				01F841BD27AEF57100278611 /* Card.swift in Sources */,
 				011E800F27A575C5004A29B5 /* HomeViewController.swift in Sources */,
 				011E7FF427A5750E004A29B5 /* AppDelegate.swift in Sources */,
 				011E7FF627A5750E004A29B5 /* SceneDelegate.swift in Sources */,

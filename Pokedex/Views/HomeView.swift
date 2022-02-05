@@ -9,44 +9,49 @@ import UIKit
 import SnapKit
 
 final class HomeView: UIView, ViewCodeConfiguration {
-    private lazy var badgeFighting: Badge = {
-        return Badge(type: .Fighting)
+    
+    lazy var scroll: UIScrollView = {
+        return UIScrollView(frame: .zero)
     }()
     
-    private lazy var badgeDark: Badge = {
-        return Badge(type: .Dark)
+    private lazy var wrapper: UIStackView = {
+        return UIStackView(frame: .zero)
     }()
     
-    private lazy var badgeDragon: Badge = {
-        return Badge(type: .Dragon)
+    private lazy var pokemon1: Card = {
+        return Card(number: "#001", name: "Bulbasaur", types: [.Grass, .Poison], image: "1.png")
     }()
     
-    private lazy var badgeElectric: Badge = {
-        return Badge(type: .Electric)
+    private lazy var pokemon2: Card = {
+        return Card(number: "#002", name: "Ivysaur", types: [.Grass, .Poison], image: "2.png")
     }()
     
-    private lazy var badgeGrass: Badge = {
-        return Badge(type: .Grass)
+    private lazy var pokemon3: Card = {
+        return Card(number: "#003", name: "Venusaur", types: [.Grass, .Poison], image: "3.png")
     }()
     
-    private lazy var badgePoison: Badge = {
-        return Badge(type: .Poison)
+    private lazy var pokemon4: Card = {
+        return Card(number: "#004", name: "Charmander", types: [.Fire], image: "4.png")
     }()
     
-    private lazy var badgePsychic: Badge = {
-        return Badge(type: .Psychic)
+    private lazy var pokemon7: Card = {
+        return Card(number: "#007", name: "Squirtle", types: [.Water], image: "7.png")
     }()
     
-    private lazy var iconPsychic: Icon = {
-        return Icon(type: .Psychic)
+    private lazy var pokemon16: Card = {
+        return Card(number: "#016", name: "Pidgey", types: [.Normal, .Flying], image: "16.png")
     }()
     
-    private lazy var iconGrass: Icon = {
-        return Icon(type: .Grass)
+    private lazy var pokemon10: Card = {
+        return Card(number: "#010", name: "Caterpie", types: [.Bug], image: "10.png")
     }()
     
-    private lazy var iconFire: Icon = {
-        return Icon(type: .Normal, shape: .Square)
+    private lazy var pokemon41: Card = {
+        return Card(number: "#041", name: "Zubat", types: [.Poison, .Flying], image: "41.png")
+    }()
+    
+    private lazy var pokemon54: Card = {
+        return Card(number: "#054", name: "Psyduck", types: [.Water], image: "54.png")
     }()
     
     override init(frame: CGRect = .zero) {
@@ -63,71 +68,37 @@ final class HomeView: UIView, ViewCodeConfiguration {
 
 extension HomeView {
     func buildHierarchy() {
-        self.addSubview(badgeFighting)
-        self.addSubview(badgeDark)
-        self.addSubview(badgeDragon)
-        self.addSubview(badgeElectric)
-        self.addSubview(badgeGrass)
-        self.addSubview(badgePoison)
-        self.addSubview(badgePsychic)
-        self.addSubview(iconPsychic)
-        self.addSubview(iconGrass)
-        self.addSubview(iconFire)
+        wrapper.addArrangedSubview(pokemon1)
+        wrapper.addArrangedSubview(pokemon4)
+        wrapper.addArrangedSubview(pokemon7)
+        wrapper.addArrangedSubview(pokemon10)
+        wrapper.addArrangedSubview(pokemon16)
+        wrapper.addArrangedSubview(pokemon41)
+        wrapper.addArrangedSubview(pokemon54)
+        
+        scroll.addSubview(wrapper)
+        
+        self.addSubview(scroll)
     }
     
     func setupContraints() {
-        badgeFighting.snp.makeConstraints{ make in
-            make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview()
+        scroll.snp.makeConstraints { make in
+            make.width.greaterThanOrEqualToSuperview()
+            make.height.greaterThanOrEqualToSuperview()
+            
+            if #available(iOS 11, *) {
+                make.bottom.equalTo(safeAreaLayoutGuide.snp.bottomMargin)
+            }
         }
         
-        badgePsychic.snp.makeConstraints{ make in
-            make.centerX.equalToSuperview()
-            make.centerY.equalTo(badgeFighting).multipliedBy(0.9)
-        }
-        
-        badgeDark.snp.makeConstraints{ make in
-            make.centerX.equalToSuperview()
-            make.centerY.equalTo(badgeFighting).multipliedBy(0.8)
-        }
-        
-        badgeDragon.snp.makeConstraints{ make in
-            make.centerX.equalToSuperview()
-            make.centerY.equalTo(badgeFighting).multipliedBy(0.7)
-        }
-        
-        badgeElectric.snp.makeConstraints{ make in
-            make.centerX.equalToSuperview()
-            make.centerY.equalTo(badgeFighting).multipliedBy(0.6)
-        }
-        
-        badgeGrass.snp.makeConstraints{ make in
-            make.centerX.equalToSuperview()
-            make.centerY.equalTo(badgeFighting).multipliedBy(0.5)
-        }
-        
-        badgePoison.snp.makeConstraints{ make in
-            make.centerX.equalToSuperview()
-            make.centerY.equalTo(badgeFighting).multipliedBy(0.4)
-        }
-        
-        iconPsychic.snp.makeConstraints{ make in
-            make.centerX.equalToSuperview()
-            make.centerY.equalTo(badgeFighting).multipliedBy(1.2)
-        }
-
-        iconGrass.snp.makeConstraints{ make in
-            make.centerX.equalToSuperview()
-            make.centerY.equalTo(badgeFighting).multipliedBy(1.4)
-        }
-
-        iconFire.snp.makeConstraints{ make in
-            make.centerX.equalToSuperview()
-            make.centerY.equalTo(badgeFighting).multipliedBy(1.6)
+        wrapper.snp.makeConstraints{ make in
+            make.edges.greaterThanOrEqualToSuperview()
+            make.width.greaterThanOrEqualToSuperview()
         }
     }
     
     func configureViews() {
-        // Nothing to implement
+        wrapper.axis = .vertical
+        wrapper.spacing = 30
     }
 }

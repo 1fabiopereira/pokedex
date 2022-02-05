@@ -9,11 +9,10 @@ import UIKit
 import SnapKit
 
 final class HomeViewController: UIViewController {
-    private let customView: HomeView
-    
+
      init() {
-        self.customView = HomeView()
         super.init(nibName: nil, bundle: nil)
+        self.view = HomeView()
      }
     
     required init?(coder: NSCoder) {
@@ -21,6 +20,6 @@ final class HomeViewController: UIViewController {
     }
     
     override func loadView() {
-        self.view = self.customView
+        self.navigationController?.hidesBarsOnSwipe = true
     }
 }

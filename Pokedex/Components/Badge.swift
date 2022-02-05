@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 
 final class Badge: UIButton, ViewCodeConfiguration {
+    
     weak var delegate: ClickableDelegate?
     
     var type: PokemonType? {
@@ -33,6 +34,7 @@ final class Badge: UIButton, ViewCodeConfiguration {
         super.init(frame: .zero)
         self.type = type
         self.applyViewCode()
+        self.addTarget(self, action: #selector(onClick), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {
@@ -40,10 +42,28 @@ final class Badge: UIButton, ViewCodeConfiguration {
     }
     
     @objc private func onClick() {
-        print("Internal Click: --> \(self.type!)")
+        self.pressed()
+
         if delegate?.onClick != nil {
             delegate!.onClick(type: self.type)
         }
+    }
+    
+    private func pressed() -> Void {
+        let presssed = 0.5
+        let normal = 1.0
+        
+        self.alpha = presssed
+        self.icon.alpha = presssed
+        self.label.alpha = presssed
+        self.wrapper.alpha = presssed
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
+            self.alpha = normal
+            self.icon.alpha = normal
+            self.label.alpha = normal
+            self.wrapper.alpha = normal
+        })
     }
 }
 
@@ -63,7 +83,7 @@ extension Badge {
         }
         
         wrapper.snp.makeConstraints{ make in
-            make.height.equalTo(15)
+            make.height.equalToSuperview()
             make.centerX.equalToSuperview()
             make.centerY.equalToSuperview()
             make.leading.equalTo(5)
@@ -73,6 +93,7 @@ extension Badge {
         icon.snp.makeConstraints{ make in
             make.width.equalTo(15)
             make.height.equalTo(15)
+            make.centerY.equalToSuperview()
         }
         
         label.snp.makeConstraints{ make in
@@ -86,7 +107,7 @@ extension Badge {
         if let pokemonType = self.type {
             self.backgroundColor = Colors.getColor(type: pokemonType)
             self.layer.cornerRadius = 3
-                        
+                                    
             label.text = pokemonType.rawValue
             label.textColor = .white
             label.textAlignment = .center
